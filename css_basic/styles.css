@@ -1,0 +1,48 @@
+/* ----- Layout with Flexbox ----- */
+
+/* Make the page fill the viewport and stack header, main, footer vertically */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;              /* body is a flex container */
+  flex-direction: column;     /* vertical: header, main, footer */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Optional visuals so you see blocks clearly */
+header { background:#e9eefb; padding:16px; }
+footer { background:#f0f0f0; padding:16px; }
+main   { padding:16px; flex: 1; }   /* flex:1 so main grows to fill space */
+
+/* Inside <main>, place article and aside in a row */
+main {
+  display: flex;              /* main is also a flex container */
+  gap: 16px;                  /* space between article & aside */
+}
+
+/* Content columns */
+article {
+  flex: 1 1 auto;             /* take remaining width */
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+aside {
+  flex: 0 0 300px;            /* fixed sidebar width (300px) */
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* Make it stack on small screens */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;   /* article above aside */
+  }
+  aside {
+    flex-basis: auto;         /* let aside become full-width */
+  }
+}
