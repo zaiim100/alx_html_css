@@ -1,54 +1,35 @@
-/* ===== Layout with Flexbox (as required) ===== */
+/* Extra Styling */
 
-/* Page as a vertical flex: header, main, footer */
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  background-color: #f4f6f9; /* subtle global bg */
-  color: #333;
-}
-
-/* Header / Footer basic spacing */
-header, footer {
-  padding: 16px;
-  text-align: center;
-  background: #e9efff;
-}
-
-/* Keep main flexible to fill remaining space */
-main {
-  flex: 1;
-  padding: 16px;
-  display: flex;          /* row on desktop */
-  gap: 16px;
-}
-
-/* Article takes 2/3, Aside takes 1/3 */
-article {
-  flex: 2;
-  padding: 16px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-aside {
-  flex: 1;
-  padding: 16px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* Logo styling */
+/* Make logo stand out */
 .logo {
   font-size: 2rem;
-  color: #4CAF50; /* green accent */
+  color: #4CAF50;
   margin-right: 10px;
   vertical-align: middle;
+}
+
+/* Card style for article & aside */
+article, aside {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0,0,0,.08);
+  border: 1px solid rgba(0,0,0,.04);
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+
+article:hover, aside:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.12);
+}
+
+/* Header & Footer */
+header {
+  background: #e9efff;
+}
+footer {
+  background: #f1f3fb;
+  color: #222;
+  font-size: .95rem;
 }
 
 /* Links inside article */
@@ -59,14 +40,4 @@ article a {
 }
 article a:hover {
   border-bottom-style: solid;
-}
-
-/* Responsive: stack vertically on small screens */
-@media (max-width: 768px) {
-  main {
-    flex-direction: column;
-  }
-  article, aside {
-    flex: auto;
-  }
 }
