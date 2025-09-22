@@ -1,92 +1,46 @@
-/* ----- Layout with Flexbox ----- */
+/* ===== Flexbox Positioning for the layout ===== */
 
-/* Make the page fill the viewport and stack header, main, footer vertically */
+/* Stack header, main, footer vertically */
 body {
-  margin: 0;
+  display: flex;
+  flex-direction: column;  /* <header>, <main>, <footer> in a column */
   min-height: 100vh;
-  display: flex;              /* body is a flex container */
-  flex-direction: column;     /* vertical: header, main, footer */
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Optional visuals so you see blocks clearly */
-header { background:#e9eefb; padding:16px; }
-footer { background:#f0f0f0; padding:16px; }
-main   { padding:16px; flex: 1; }   /* flex:1 so main grows to fill space */
-
-/* Inside <main>, place article and aside in a row */
-main {
-  display: flex;              /* main is also a flex container */
-  gap: 16px;                  /* space between article & aside */
-}
-
-/* Content columns */
-article {
-  flex: 1 1 auto;             /* take remaining width */
-  background: white;
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-}
-
-aside {
-  flex: 0 0 300px;            /* fixed sidebar width (300px) */
-  background: white;
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-}
-
-/* Make it stack on small screens */
-@media (max-width: 768px) {
-  main {
-    flex-direction: column;   /* article above aside */
-  }
-  aside {
-    flex-basis: auto;         /* let aside become full-width */
-  }
-}
-/* Make the body a flex container in column direction */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Full viewport height */
   margin: 0;
 }
 
-/* Make main a flex container in row direction */
+/* Place article and aside side-by-side inside <main> */
 main {
   display: flex;
-  flex-direction: row;
-  flex: auto; /* Allow main to grow and fill available space */
+  flex-direction: row;     /* <article> | <aside> in a row */
+  flex: auto;              /* keep automatic width/height and grow to fill space */
 }
 
-/* Article should take 2/3 of the width */
+/* Content takes 2/3 width with inner scrolling */
 article {
-  flex: 2;
+  flex: 2;                 /* two “boxes” -> 2/3 of the row */
+  overflow-y: auto;        /* internal vertical scroll */
   padding: 1rem;
-  overflow-y: auto; /* Enable vertical scrolling inside article */
-  background: #ffffff;
+  background: #fff;
   border-radius: 8px;
   margin: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Aside should take 1/3 of the width */
+/* Sidebar takes 1/3 width with inner scrolling */
 aside {
-  flex: 1;
+  flex: 1;                 /* one “box” -> 1/3 of the row */
+  overflow-y: auto;        /* internal vertical scroll */
   padding: 1rem;
-  overflow-y: auto; /* Enable vertical scrolling inside aside */
-  background: #ffffff;
+  background: #fff;
   border-radius: 8px;
   margin: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Simple styling for header and footer */
-header, footer {
+/* Simple visuals for header and footer (optional) */
+header,
+footer {
   background: #e9efff;
   padding: 1rem;
   text-align: center;
 }
-
