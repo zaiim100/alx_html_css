@@ -8,61 +8,79 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
 
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Skip link for accessibility -->
-  <a class="skip-link" href="#main-content">Skip to content</a>
-
   <!-- Header -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <a class="brand" href="#" aria-label="Home">
+      <a class="brand" href="#home" aria-label="Home">
         <span class="logo" aria-hidden="true">★</span>
         <span class="brand-name">Brand</span>
       </a>
+
       <nav class="primary-nav" aria-label="Primary">
         <ul class="nav-list">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Features</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li><a href="#">About</a></li>
+          <li><a class="nav-link is-active" href="#home">Home</a></li>
+          <li><a class="nav-link" href="#features">Features</a></li>
+          <li><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
         </ul>
+        <span class="active-underline" aria-hidden="true"></span>
       </nav>
     </div>
   </header>
 
   <!-- Main -->
-  <main id="main-content" class="site-main" role="main">
-    <!-- Hero -->
-    <section class="hero">
+  <main id="home" class="site-main">
+    <!-- Hero / Banner -->
+    <section class="hero" aria-labelledby="hero-title">
       <div class="container hero-inner">
-        <h1 class="hero-title">Design system headline</h1>
+        <h1 id="hero-title" class="hero-title">Design system headline</h1>
         <p class="hero-subtitle">Supporting copy that matches the Figma design.</p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#">Get started</a>
-          <a class="btn btn-ghost" href="#">Learn more</a>
+          <a class="btn btn-primary" href="#get-started">Get started</a>
+          <a class="btn btn-ghost" href="#learn-more">Learn more</a>
         </div>
       </div>
     </section>
 
     <!-- Features -->
-    <section class="features container" aria-label="Key features">
+    <section id="features" class="features container" aria-label="Key features">
       <article class="card">
-        <h2>Feature one</h2>
-        <p>Short description of the feature.</p>
+        <div class="card-icon" aria-hidden="true">✓</div>
+        <h2 class="card-title">Feature one</h2>
+        <p class="card-text">Short description of the feature.</p>
+        <a class="card-link" href="#">Learn more</a>
       </article>
+
       <article class="card">
-        <h2>Feature two</h2>
-        <p>Short description of the feature.</p>
+        <div class="card-icon" aria-hidden="true">◎</div>
+        <h2 class="card-title">Feature two</h2>
+        <p class="card-text">Short description of the feature.</p>
+        <a class="card-link" href="#">Learn more</a>
       </article>
+
       <article class="card">
-        <h2>Feature three</h2>
-        <p>Short description of the feature.</p>
+        <div class="card-icon" aria-hidden="true">✦</div>
+        <h2 class="card-title">Feature three</h2>
+        <p class="card-text">Short description of the feature.</p>
+        <a class="card-link" href="#">Learn more</a>
       </article>
+    </section>
+
+    <!-- Placeholder sections (للمرحلة القادمة) -->
+    <section id="pricing" class="placeholder container" aria-label="Pricing (coming next)">
+      <h2>Pricing (next step)</h2>
+      <p>We’ll build this section to match Figma in the next step.</p>
+    </section>
+
+    <section id="about" class="placeholder container" aria-label="About (coming next)">
+      <h2>About (next step)</h2>
+      <p>We’ll add the final layout and styles soon.</p>
     </section>
   </main>
 
@@ -76,5 +94,31 @@
       </ul>
     </div>
   </footer>
+
+  <!-- Small script to move underline on nav (no frameworks) -->
+  <script>
+    const nav = document.querySelector('.primary-nav');
+    const underline = document.querySelector('.active-underline');
+    const links = [...document.querySelectorAll('.nav-link')];
+
+    function moveUnderline(el) {
+      const { left, width } = el.getBoundingClientRect();
+      const navLeft = nav.getBoundingClientRect().left;
+      underline.style.transform = \`translateX(\${left - navLeft}px)\`;
+      underline.style.width = \`\${width}px\`;
+    }
+
+    // init on load (active link)
+    const active = document.querySelector('.nav-link.is-active') || links[0];
+    moveUnderline(active);
+
+    // hover animation
+    links.forEach(a => {
+      a.addEventListener('mouseenter', () => moveUnderline(a));
+      a.addEventListener('focus', () => moveUnderline(a));
+    });
+    nav.addEventListener('mouseleave', () => moveUnderline(active));
+    window.addEventListener('resize', () => moveUnderline(document.querySelector('.nav-link.is-active') || links[0]));
+  </script>
 </body>
 </html>
