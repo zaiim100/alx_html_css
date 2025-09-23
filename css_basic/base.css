@@ -1,53 +1,35 @@
-/* base.css */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f5f5f5;
-}
-main {
-  max-width: 960px;
-  margin: auto;
-}
-/* ===== Reset Styles ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link href="base.css" rel="stylesheet" />
+  <link href="styles.css" rel="stylesheet" />
+</head>
+<body class="works_on_smartphone">
+  <header>
+    <!-- Logo -->
+    <span class="logo" aria-hidden="true">&#9733;</span>
+    <h1>Welcome to My Portfolio</h1>
+    <p>This is the header section of the page.</p>
+  </header>
 
-/* ===== Base Typography ===== */
-html {
-  font-size: 16px;
-}
+  <main>
+    <article>
+      <h2>Article Section</h2>
+      <p>Here is the main content area of the page.</p>
+      <p>Check out my <a href="#">latest project</a>!</p>
+    </article>
 
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  background-color: #f4f6f9;
-  color: #333;
-}
+    <aside>
+      <h2>Sidebar</h2>
+      <p>This is the sidebar section with extra info.</p>
+    </aside>
+  </main>
 
-/* ===== Links ===== */
-a {
-  color: #007acc;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* ===== Headings ===== */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #111;
-}
-
-/* ===== Paragraphs ===== */
-p {
-  margin-bottom: 1rem;
-  color: #444;
-}
-
+  <footer>
+    <p>Copyright © 2025 - Youssef Zaim</p>
+  </footer>
+</body>
+</html>
