@@ -1,71 +1,210 @@
-/* Variables */
+/* =======================
+   Design Tokens / Variables
+   ======================= */
 :root{
   --font-base: "Source Sans Pro", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+
   --text: #1f2330;
   --muted: #5f6b7a;
+
   --bg: #f6f8fb;
   --surface: #ffffff;
+
   --brand: #4CAF50;
   --brand-600: #3fa447;
+
   --stroke: rgba(0,0,0,.08);
   --shadow: 0 10px 24px rgba(16, 24, 40, .06);
+
   --radius: 12px;
 }
 
-/* Reset-ish */
+/* =======================
+   Base / Reset-ish
+   ======================= */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
+
 body {
   font-family: var(--font-base);
   color: var(--text);
   background: var(--bg);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
 a { color: var(--brand); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
+img { max-width: 100%; display: block; }
+
+/* Container */
 .container { width: min(1120px, 92vw); margin-inline: auto; }
 
-/* Header */
-.site-header { background: #e9efff; border-bottom: 1px solid var(--stroke); }
-.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
-.brand { display: inline-flex; align-items: center; gap: 8px; color: inherit; }
-.logo { font-size: 1.6rem; color: var(--brand); }
-.brand-name { font-weight: 700; letter-spacing: .3px; }
-.primary-nav .nav-list { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
-.primary-nav a { color: var(--text); opacity: .9; }
-.primary-nav a:hover { opacity: 1; }
-
-/* Hero */
-.hero { padding: 72px 0 40px; }
-.hero-title { font-size: clamp(2rem, 3.4vw + 1rem, 3rem); margin: 0 0 8px; }
-.hero-subtitle { color: var(--muted); margin: 0 0 20px; }
-.hero-cta { display: flex; gap: 12px; }
-.btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  padding: 12px 18px; border-radius: 10px; border: 1px solid transparent; font-weight: 600;
+/* =======================
+   Accessibility helpers
+   ======================= */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
-.btn-primary { background: var(--brand); color: #fff; box-shadow: var(--shadow); }
-.btn-primary:hover { background: var(--brand-600); }
-.btn-ghost { background: var(--surface); border-color: var(--stroke); color: var(--text); }
-.btn-ghost:hover { box-shadow: var(--shadow); }
+.skip-link:focus {
+  left: 16px;
+  top: 16px;
+  width: auto;
+  height: auto;
+  padding: 8px 12px;
+  background: #000;
+  color: #fff;
+  border-radius: 8px;
+  z-index: 1000;
+}
 
-/* Features / Cards */
-.features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding: 40px 0 72px; }
+/* =======================
+   Header
+   ======================= */
+.site-header {
+  background: #e9efff;
+  border-bottom: 1px solid var(--stroke);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: inherit;
+}
+.logo {
+  font-size: 1.6rem;
+  color: var(--brand);
+}
+.brand-name {
+  font-weight: 700;
+  letter-spacing: .3px;
+}
+.primary-nav .nav-list {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.primary-nav a {
+  color: var(--text);
+  opacity: .9;
+  transition: opacity .15s ease;
+}
+.primary-nav a:hover,
+.primary-nav a:focus-visible {
+  opacity: 1;
+  outline: none;
+}
+
+/* =======================
+   Hero
+   ======================= */
+.hero { padding: 72px 0 40px; }
+.hero-title {
+  font-size: clamp(2rem, 3.4vw + 1rem, 3rem);
+  margin: 0 0 8px;
+}
+.hero-subtitle {
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+.hero-cta { display: flex; gap: 12px; }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .06s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease;
+}
+.btn:active { transform: translateY(1px); }
+
+.btn-primary {
+  background: var(--brand);
+  color: #fff;
+  box-shadow: var(--shadow);
+}
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: var(--brand-600);
+  outline: none;
+}
+
+.btn-ghost {
+  background: var(--surface);
+  border-color: var(--stroke);
+  color: var(--text);
+}
+.btn-ghost:hover,
+.btn-ghost:focus-visible {
+  box-shadow: var(--shadow);
+  outline: none;
+}
+
+/* =======================
+   Features / Cards
+   ======================= */
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding: 40px 0 72px;
+}
 .card {
-  background: var(--surface); border: 1px solid var(--stroke); border-radius: var(--radius);
-  box-shadow: var(--shadow); padding: 18px;
+  background: var(--surface);
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
 }
 .card h2 { margin: 0 0 8px; }
 .card p { margin: 0; color: var(--muted); }
 
-/* Footer */
-.site-footer { background: #f1f3fb; border-top: 1px solid var(--stroke); padding: 18px 0; }
-.footer-inner { display: flex; align-items: center; justify-content: space-between; }
-.footer-links { display: inline-flex; list-style: none; gap: 14px; margin: 0; padding: 0; }
+/* =======================
+   Footer
+   ======================= */
+.site-footer {
+  background: #f1f3fb;
+  border-top: 1px solid var(--stroke);
+  padding: 18px 0;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-links {
+  display: inline-flex;
+  list-style: none;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+}
 
-/* Responsive */
+/* =======================
+   Responsive
+   ======================= */
 @media (max-width: 900px) {
   .features { grid-template-columns: 1fr; }
   .header-inner { flex-wrap: wrap; gap: 12px; }
+  .hero { padding: 56px 0 28px; }
 }
