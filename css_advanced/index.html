@@ -27,7 +27,8 @@
           <li><a class="nav-link is-active" href="#home">Home</a></li>
           <li><a class="nav-link" href="#features">Features</a></li>
           <li><a class="nav-link" href="#pricing">Pricing</a></li>
-          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#blog">Blog</a></li>
+          <li><a class="nav-link" href="#faq">FAQ</a></li>
         </ul>
         <span class="active-underline" aria-hidden="true"></span>
       </nav>
@@ -72,15 +73,206 @@
       </article>
     </section>
 
-    <!-- Placeholder sections (للمرحلة القادمة) -->
-    <section id="pricing" class="placeholder container" aria-label="Pricing (coming next)">
-      <h2>Pricing (next step)</h2>
-      <p>We’ll build this section to match Figma in the next step.</p>
+    <!-- Pricing -->
+    <section id="pricing" class="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <header class="section-head">
+          <h2 id="pricing-title">Simple pricing</h2>
+          <p class="section-sub">Choose a plan that works for you.</p>
+        </header>
+
+        <div class="plans">
+          <!-- Starter -->
+          <article class="plan">
+            <h3 class="plan-name">Starter</h3>
+            <p class="plan-desc">All basics to get started.</p>
+            <div class="plan-price">
+              <span class="price">$0</span>
+              <span class="per">/mo</span>
+            </div>
+            <ul class="plan-feats">
+              <li>✓ Single user</li>
+              <li>✓ Community support</li>
+              <li>✓ Basic analytics</li>
+            </ul>
+            <a class="btn btn-ghost plan-cta" href="#">Try for free</a>
+          </article>
+
+          <!-- Pro (highlighted) -->
+          <article class="plan plan--pro">
+            <div class="badge">Popular</div>
+            <h3 class="plan-name">Pro</h3>
+            <p class="plan-desc">Advanced tools for growth.</p>
+            <div class="plan-price">
+              <span class="price">$19</span>
+              <span class="per">/mo</span>
+            </div>
+            <ul class="plan-feats">
+              <li>✓ Up to 5 users</li>
+              <li>✓ Priority support</li>
+              <li>✓ Advanced analytics</li>
+              <li>✓ Integrations</li>
+            </ul>
+            <a class="btn btn-primary plan-cta" href="#">Get Pro</a>
+          </article>
+
+          <!-- Team -->
+          <article class="plan">
+            <h3 class="plan-name">Team</h3>
+            <p class="plan-desc">Collaboration features.</p>
+            <div class="plan-price">
+              <span class="price">$49</span>
+              <span class="per">/mo</span>
+            </div>
+            <ul class="plan-feats">
+              <li>✓ Unlimited users</li>
+              <li>✓ SLA support</li>
+              <li>✓ Custom reports</li>
+              <li>✓ SSO</li>
+            </ul>
+            <a class="btn btn-ghost plan-cta" href="#">Contact sales</a>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <section id="about" class="placeholder container" aria-label="About (coming next)">
-      <h2>About (next step)</h2>
-      <p>We’ll add the final layout and styles soon.</p>
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials" aria-labelledby="testi-title">
+      <div class="container">
+        <header class="section-head">
+          <h2 id="testi-title">What our users say</h2>
+          <p class="section-sub">Real feedback from real teams.</p>
+        </header>
+
+        <div class="testi-grid">
+          <article class="testi-card">
+            <p class="quote">“The UI kit saved us weeks of work. Clean, consistent, and delightful to use.”</p>
+            <div class="person">
+              <img src="https://i.pravatar.cc/80?img=12" alt="Avatar of Sarah Kim" />
+              <div>
+                <div class="name">Sarah Kim</div>
+                <div class="role">Product Designer, Nova</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testi-card">
+            <p class="quote">“Setup was instant and the components are top-notch. Highly recommended.”</p>
+            <div class="person">
+              <img src="https://i.pravatar.cc/80?img=32" alt="Avatar of Ahmed Ali" />
+              <div>
+                <div class="name">Ahmed Ali</div>
+                <div class="role">Frontend Lead, Hexa</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testi-card">
+            <p class="quote">“Our team ships faster with far fewer design bugs. The system is rock solid.”</p>
+            <div class="person">
+              <img src="https://i.pravatar.cc/80?img=7" alt="Avatar of Laura Chen" />
+              <div>
+                <div class="name">Laura Chen</div>
+                <div class="role">Engineering Manager, Peak</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog / Resources -->
+    <section id="blog" class="blog" aria-labelledby="blog-title">
+      <div class="container">
+        <header class="section-head">
+          <h2 id="blog-title">Latest resources</h2>
+          <p class="section-sub">Guides and updates from our team.</p>
+        </header>
+
+        <div class="blog-grid">
+          <article class="post">
+            <a class="thumb" href="#">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" alt="Team collaborating" />
+            </a>
+            <div class="post-body">
+              <a class="tag" href="#">Guides</a>
+              <h3 class="post-title"><a href="#">Design tokens that scale</a></h3>
+              <p class="post-excerpt">A practical approach to naming and structuring tokens across products.</p>
+              <div class="meta">5 min read · Feb 2025</div>
+            </div>
+          </article>
+
+          <article class="post">
+            <a class="thumb" href="#">
+              <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" alt="Developer working" />
+            </a>
+            <div class="post-body">
+              <a class="tag" href="#">Engineering</a>
+              <h3 class="post-title"><a href="#">CSS architecture for speed</a></h3>
+              <p class="post-excerpt">Keep your CSS fast, predictable and easy to extend as teams grow.</p>
+              <div class="meta">7 min read · Jan 2025</div>
+            </div>
+          </article>
+
+          <article class="post">
+            <a class="thumb" href="#">
+              <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop" alt="Laptop on desk" />
+            </a>
+            <div class="post-body">
+              <a class="tag" href="#">Product</a>
+              <h3 class="post-title"><a href="#">From prototype to production</a></h3>
+              <p class="post-excerpt">How we ship consistently with a shared design language.</p>
+              <div class="meta">4 min read · Dec 2024</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <header class="section-head">
+          <h2 id="faq-title">Frequently asked questions</h2>
+          <p class="section-sub">Everything you need to know.</p>
+        </header>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Can I use the Pro plan for client work?</summary>
+            <p>Yes. You can use the components and styles across client projects as long as you keep your license active.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Do you offer discounts for students or NGOs?</summary>
+            <p>We provide a 30% discount for verified students and non-profits. Contact support to apply.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Is there an on-premise option?</summary>
+            <p>Enterprise customers can request an on-premise deployment with SSO and audit logging.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can I cancel at any time?</summary>
+            <p>Absolutely. You can cancel from your billing page. Your plan will remain active until the end of the cycle.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA strip -->
+    <section class="cta-strip" aria-labelledby="cta-title">
+      <div class="container cta-inner">
+        <div>
+          <h2 id="cta-title">Ready to build faster?</h2>
+          <p class="cta-sub">Start with the Pro plan and upgrade any time.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="#pricing">Start now</a>
+          <a class="btn btn-ghost" href="#features">See features</a>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -95,7 +287,7 @@
     </div>
   </footer>
 
-  <!-- Small script to move underline on nav (no frameworks) -->
+  <!-- Active underline script -->
   <script>
     const nav = document.querySelector('.primary-nav');
     const underline = document.querySelector('.active-underline');
@@ -104,21 +296,25 @@
     function moveUnderline(el) {
       const { left, width } = el.getBoundingClientRect();
       const navLeft = nav.getBoundingClientRect().left;
-      underline.style.transform = \`translateX(\${left - navLeft}px)\`;
-      underline.style.width = \`\${width}px\`;
+      underline.style.transform = `translateX(${left - navLeft}px)`;
+      underline.style.width = `${width}px`;
     }
 
-    // init on load (active link)
     const active = document.querySelector('.nav-link.is-active') || links[0];
     moveUnderline(active);
 
-    // hover animation
     links.forEach(a => {
       a.addEventListener('mouseenter', () => moveUnderline(a));
       a.addEventListener('focus', () => moveUnderline(a));
+      a.addEventListener('click', () => {
+        links.forEach(l => l.classList.remove('is-active'));
+        a.classList.add('is-active');
+        moveUnderline(a);
+      });
     });
-    nav.addEventListener('mouseleave', () => moveUnderline(active));
-    window.addEventListener('resize', () => moveUnderline(document.querySelector('.nav-link.is-active') || links[0]));
+
+    nav.addEventListener('mouseleave', () => moveUnderline(document.querySelector('.nav-link.is-active') || active));
+    window.addEventListener('resize', () => moveUnderline(document.querySelector('.nav-link.is-active') || active));
   </script>
 </body>
 </html>
