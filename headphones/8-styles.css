@@ -1,0 +1,20 @@
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .nav ul {
+    display: none;
+    flex-direction: column;
+  }
+
+  .nav.open ul {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}

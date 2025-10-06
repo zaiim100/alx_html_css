@@ -1,0 +1,17 @@
+.pentagon {
+  position: relative;
+  width: 120px;
+  border-width: 100px 35px 0;
+  border-style: solid;
+  border-color: var(--brand-color) transparent;
+}
+
+.pentagon:before {
+  content: "";
+  position: absolute;
+  top: -185px;
+  left: -35px;
+  border-width: 0 95px 85px;
+  border-style: solid;
+  border-color: transparent transparent var(--brand-color);
+}

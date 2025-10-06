@@ -1,0 +1,10 @@
+.services .service,
+.results-grid .result {
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.services .service:hover,
+.results-grid .result:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
